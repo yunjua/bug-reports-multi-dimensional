@@ -1,0 +1,21 @@
+You are an expert in bug report analysis. Please read and analyze the following bug report to find a solution to the bug. Keep your answers brief.
+
+llamafactory-cli train \
+    --stage sft \
+    --model_name_or_path /root/autodl-fs/llama3-8b/Meta-Llama-3-8B \
+    --preprocessing_num_workers 16 \
+    --finetuning_type lora \
+    --template llama3 \
+    --flash_attn auto \
+    --dataset_dir data \
+    --dataset sugg_test_modified \
+    --cutoff_len 1024 \
+    --max_samples 400 \
+    --per_device_eval_batch_size 2 \
+    --predict_with_generate True \
+    --max_new_tokens 512 \
+    --top_p 0.7 \
+    --temperature 0.5 \
+    --output_dir saves/LLaMA3-8B/lora/eval_sugg_content1 \
+    --do_predict True \
+    --adapter_name_or_path saves/LLaMA3-8B/lora/train_sugg
