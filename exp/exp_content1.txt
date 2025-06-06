@@ -1,0 +1,55 @@
+You are an expert in bug report analysis. Please read and analyze the following bug report to extract and describe the expected system response (application performance, software behavior, operation results) in no more than 15 words.
+
+llamafactory-cli train \
+    --stage sft \
+    --do_train True \
+    --model_name_or_path /root/autodl-fs/llama3-8b/Meta-Llama-3-8B \
+    --preprocessing_num_workers 16 \
+    --finetuning_type lora \
+    --template llama3 \
+    --flash_attn auto \
+    --dataset_dir data \
+    --dataset exp_train_modified \
+    --cutoff_len 1024 \
+    --learning_rate 0.0002 \
+    --num_train_epochs 10.0 \
+    --max_samples 1700 \
+    --per_device_train_batch_size 2 \
+    --gradient_accumulation_steps 8 \
+    --lr_scheduler_type cosine \
+    --max_grad_norm 1.0 \
+    --logging_steps 5 \
+    --save_steps 100 \
+    --warmup_steps 0 \
+    --optim adamw_torch \
+    --packing False \
+    --report_to none \
+    --output_dir saves/LLaMA3-8B/lora/train_exp \
+    --fp16 True \
+    --plot_loss True \
+    --ddp_timeout 180000000 \
+    --include_num_input_tokens_seen True \
+    --lora_rank 8 \
+    --lora_alpha 16 \
+    --lora_dropout 0 \
+    --lora_target all
+
+llamafactory-cli train \
+    --stage sft \
+    --model_name_or_path /root/autodl-fs/llama3-8b/Meta-Llama-3-8B \
+    --preprocessing_num_workers 16 \
+    --finetuning_type lora \
+    --template llama3 \
+    --flash_attn auto \
+    --dataset_dir data \
+    --dataset exp_test_modified \
+    --cutoff_len 1024 \
+    --max_samples 750 \
+    --per_device_eval_batch_size 2 \
+    --predict_with_generate True \
+    --max_new_tokens 512 \
+    --top_p 0.7 \
+    --temperature 0.5 \
+    --output_dir saves/LLaMA3-8B/lora/eval_content1 \
+    --do_predict True \
+    --adapter_name_or_path saves/LLaMA3-8B/lora/train_exp
