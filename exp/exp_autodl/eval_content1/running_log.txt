@@ -1,0 +1,98 @@
+07/22/2024 14:10:47 - INFO - transformers.tokenization_utils_base - loading file tokenizer.json
+
+07/22/2024 14:10:47 - INFO - transformers.tokenization_utils_base - loading file added_tokens.json
+
+07/22/2024 14:10:47 - INFO - transformers.tokenization_utils_base - loading file special_tokens_map.json
+
+07/22/2024 14:10:47 - INFO - transformers.tokenization_utils_base - loading file tokenizer_config.json
+
+07/22/2024 14:10:47 - WARNING - transformers.tokenization_utils_base - Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+
+07/22/2024 14:10:47 - INFO - llamafactory.data.template - Replace eos token: <|eot_id|>
+
+07/22/2024 14:10:47 - INFO - llamafactory.data.template - Add pad token: <|eot_id|>
+
+07/22/2024 14:10:47 - INFO - llamafactory.data.loader - Loading dataset exp_test_modified.json...
+
+07/22/2024 14:10:52 - INFO - transformers.configuration_utils - loading configuration file /root/autodl-fs/llama3-8b/Meta-Llama-3-8B/config.json
+
+07/22/2024 14:10:52 - INFO - transformers.configuration_utils - Model config LlamaConfig {
+  "_name_or_path": "/root/autodl-fs/llama3-8b/Meta-Llama-3-8B",
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "bos_token_id": 128000,
+  "eos_token_id": 128001,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "initializer_range": 0.02,
+  "intermediate_size": 14336,
+  "max_position_embeddings": 8192,
+  "mlp_bias": false,
+  "model_type": "llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 8,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": null,
+  "rope_theta": 500000.0,
+  "tie_word_embeddings": false,
+  "torch_dtype": "bfloat16",
+  "transformers_version": "4.42.3",
+  "use_cache": true,
+  "vocab_size": 128256
+}
+
+
+07/22/2024 14:10:52 - INFO - llamafactory.model.patcher - Using KV cache for faster generation.
+
+07/22/2024 14:10:52 - INFO - transformers.modeling_utils - loading weights file /root/autodl-fs/llama3-8b/Meta-Llama-3-8B/model.safetensors.index.json
+
+07/22/2024 14:10:52 - INFO - transformers.modeling_utils - Instantiating LlamaForCausalLM model under default dtype torch.bfloat16.
+
+07/22/2024 14:10:52 - INFO - transformers.generation.configuration_utils - Generate config GenerationConfig {
+  "bos_token_id": 128000,
+  "eos_token_id": 128001
+}
+
+
+07/22/2024 14:11:51 - INFO - transformers.modeling_utils - All model checkpoint weights were used when initializing LlamaForCausalLM.
+
+
+07/22/2024 14:11:51 - INFO - transformers.modeling_utils - All the weights of LlamaForCausalLM were initialized from the model checkpoint at /root/autodl-fs/llama3-8b/Meta-Llama-3-8B.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use LlamaForCausalLM for predictions without further training.
+
+07/22/2024 14:11:51 - INFO - transformers.generation.configuration_utils - loading configuration file /root/autodl-fs/llama3-8b/Meta-Llama-3-8B/generation_config.json
+
+07/22/2024 14:11:51 - INFO - transformers.generation.configuration_utils - Generate config GenerationConfig {
+  "bos_token_id": 128000,
+  "do_sample": true,
+  "eos_token_id": 128001,
+  "max_length": 4096,
+  "temperature": 0.6,
+  "top_p": 0.9
+}
+
+
+07/22/2024 14:11:51 - INFO - llamafactory.model.model_utils.attention - Using torch SDPA for faster training and inference.
+
+07/22/2024 14:11:52 - INFO - llamafactory.model.adapter - Merged 1 adapter(s).
+
+07/22/2024 14:11:52 - INFO - llamafactory.model.adapter - Loaded adapter(s): saves/LLaMA3-8B/lora/train_exp
+
+07/22/2024 14:11:52 - INFO - llamafactory.model.loader - all params: 8030261248
+
+07/22/2024 14:11:52 - INFO - transformers.trainer - 
+***** Running Prediction *****
+
+07/22/2024 14:11:52 - INFO - transformers.trainer -   Num examples = 726
+
+07/22/2024 14:11:52 - INFO - transformers.trainer -   Batch size = 2
+
+07/22/2024 14:12:06 - WARNING - transformers.models.llama.modeling_llama - We detected that you are passing `past_key_values` as a tuple and this is deprecated and will be removed in v4.43. Please use an appropriate `Cache` class (https://huggingface.co/docs/transformers/v4.41.3/en/internal/generation_utils#transformers.Cache)
+
+07/22/2024 15:33:32 - INFO - llamafactory.train.sft.trainer - Saving prediction results to saves/LLaMA3-8B/lora/eval_content1/generated_predictions.jsonl
+
